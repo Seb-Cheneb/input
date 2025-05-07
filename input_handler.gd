@@ -1,3 +1,4 @@
+@icon("./input.png")
 class_name InputHandler
 extends Command
 
