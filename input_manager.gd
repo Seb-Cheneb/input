@@ -1,6 +1,8 @@
 extends Node
 
-var config_file = "res://configs/keybinds.cfg"
+var current_keybindings = "res://configs/keybinds.cfg"
+var original_keybindings = "res://configs/original_keybindings"
+
 
 func save_keybinds():
 	var config = ConfigFile.new()
@@ -10,11 +12,11 @@ func save_keybinds():
 		# Save all events as an array
 		config.set_value("keybinds", action, events)
 	
-	config.save(config_file)
+	config.save(current_keybindings)
 
 func load_keybinds():
 	var config = ConfigFile.new()
-	var err = config.load(config_file)
+	var err = config.load(current_keybindings)
 	
 	if err == OK:
 		for action in InputMap.get_actions():
