@@ -1,5 +1,5 @@
-class_name Keybind
-extends RefCounted
+@icon("./input.png")
+class_name Keybind extends RefCounted
 
 var action: String
 var events: Array[InputEvent] = []

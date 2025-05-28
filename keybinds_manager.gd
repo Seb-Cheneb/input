@@ -1,5 +1,5 @@
-class_name KeybindsManager
-extends RefCounted
+@icon("./input.png")
+class_name KeybindsManager extends RefCounted
 
 # Signal emitted when an action is performed
 signal action_performed(action_name)
