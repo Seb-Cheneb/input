@@ -1,3 +1,2 @@
 @icon("./input.png")
-class_name InputHandler
-extends Node
+class_name InputHandler extends Node
