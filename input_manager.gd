@@ -1,13 +1,14 @@
 @icon("./input.png")
 extends Node
 
-var current_keybindings = "res://configs/keybinds.cfg"
-var original_keybindings = "res://configs/original_keybindings.cfg"
+var _current_keybindings = "res://configs/keybinds.cfg"
+var _original_keybindings = "res://configs/original_keybindings.cfg"
 var _keybindings: Array[Keybind] = []
+
 
 func _ready():
 	# Call this once on the first run or if the file does not exist
-	if not FileAccess.file_exists(original_keybindings):
+	if not FileAccess.file_exists(_original_keybindings):
 		save_original_keybinds()
 
 
@@ -17,7 +18,7 @@ func save_keybinds():
 	for keybind in _keybindings:
 		config.set_value("keybinds", keybind.action, keybind.events)
 		
-	config.save(current_keybindings)
+	config.save(_current_keybindings)
 
 
 func save_original_keybinds():
@@ -34,12 +35,12 @@ func save_original_keybinds():
 		# save new keybinding
 		config.set_value("keybinds", keybind.action, keybind.events)
 
-	config.save(original_keybindings)
+	config.save(_original_keybindings)
 
 
 func load_keybinds():
 	var config = ConfigFile.new()
-	var err = config.load(current_keybindings)
+	var err = config.load(_current_keybindings)
 
 	if err == OK:
 		for action in InputMap.get_actions():
@@ -52,7 +53,7 @@ func load_keybinds():
 
 func reset_keybindings() -> void:
 	var config = ConfigFile.new()
-	var err = config.load(original_keybindings)
+	var err = config.load(_original_keybindings)
 
 	if err == OK:
 		for action in InputMap.get_actions():
