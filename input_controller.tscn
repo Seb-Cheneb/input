@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b60fbii1fjl5y"]
+
+[ext_resource type="Script" uid="uid://bluft80jcvmxj" path="res://scripts/input/input_controller.gd" id="1_msdlm"]
+
+[node name="InputController" type="Node"]
+script = ExtResource("1_msdlm")
+is_debugging = null
